@@ -1,0 +1,19 @@
+{% extends "base.html " %} {% block title %}Download{% endblock %}
+{% block content %}
+<div style="width:500px; margin:0 auto" >
+<form method="POST">
+    <h1 align="center ">Download Page</h1>
+    <br/>
+    <label >Enter Picutre number</label>
+    <input type="text" id="piNumber">
+    <button type="button" id="downBut" class="btn btn-primary">Download</button>
+    <script src="download.js"></script>
+</form>
+</div>
+<script>
+document.getElementById("downBut").onclick = function(){
+    var piNumber = document.getElementById("piNumber").value;
+    window.location.href = '/downloads/'+ piNumber;
+}
+</script>
+{% endblock %}

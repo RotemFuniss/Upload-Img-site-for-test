@@ -1,0 +1,33 @@
+{% extends "base.html " %} {% block title %}Home{% endblock %}
+{% block content %}
+
+
+<h1 align="center ">Upload Files</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    
+   <div style="text-align:center">
+       <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br/>
+        <br/>
+        <h6 >Please enter 6 unique digits, you can use numbers and letters :  </h6>
+        <h7>(this unique digits for share the file with your Friends)</h7>
+        <br/>
+        <input name ="note" id="note"></input>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>  
+       </form>
+   </div>
+    <br />
+    <h2 align="center ">Files history</h1>
+    <ul class="listgroup list-flush" id="nots">
+        {%for upload in user.upload %}
+        <li class="list-group-item">
+         file name : {{ upload.filename }} , for download enter this number in download page : {{ upload.downId }}
+        </li>
+        {% endfor %}
+    </ul>
+</form>
+{% endblock %}
